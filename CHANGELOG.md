@@ -10,4 +10,5 @@
 9. Create server.js and created connnection.js, auth.js & dateFormats.js
 10. Added Models for Filters, Instruments, Locations, Sessions and Users
 11. Added typeDefs and resolvers for Filters, Instruments, Locations and Users
-12. Added seeds data for Users, Locations, Instruments and Filters 
+12. Added seeds data for Users, Locations, Instruments and Filters
+13. Added Components for Header, Footer, Weather Data, Images and Filet, Instrument and Location Forms
