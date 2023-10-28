@@ -1,4 +1,4 @@
-const { User, Location, Instrument, Filter } = require('../models');
+const { User, Location, Instrument, Filter, Category, Session } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -7,20 +7,23 @@ const resolvers = {
       return User.find({})
         .populate('locations')
         .populate('instruments')
-        .populate('filters');
+        .populate('filters')
+        .populate('sessions');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .populate('locations')
         .populate('instruments')
-        .populate('filters');
+        .populate('filters')
+        .populate('sessions');
     },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate('locations')
           .populate('instruments')
-          .populate('filters');
+          .populate('filters')
+          .populate('sessions');
       }
       throw AuthenticationError;
     },
@@ -37,6 +40,16 @@ const resolvers = {
     filters: async () => {
       return Filter.find();
     },
+
+    categories: async () => {
+      return Category.find();
+    },
+    sessions: async () => {
+      return Session.find();
+    },
+    session: async (parent, { targetName }) => {
+      return Session.findOne({ targetName  });
+    },         
   },
 
   Mutation: {
@@ -120,6 +133,34 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
+    addSession: async (parent, { targetName, commonName, sessionDate, dsoCategory, location, moonPhase, telescope, camera, mount, rotation, exposureCount, duration, filter }, context) => {
+      if (context.user) {
+        const session = await Session.create({
+          targetName,
+          commonName,
+          sessionDate,
+          dsoCategory,
+          location,
+          moonPhase,
+          telescope,
+          camera,
+          mount,
+          rotation,
+          exposureCount,
+          duration,
+          filter,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { sessions: session._id } }
+        );
+
+        return session;
+      }
+      throw AuthenticationError;
+      ('You need to be logged in!');
+    },    
   },
 };
 

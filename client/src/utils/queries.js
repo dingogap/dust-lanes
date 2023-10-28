@@ -25,6 +25,22 @@ export const QUERY_USER = gql`
         filterName
         filterType
       }
+      sessions {
+        _id
+        targetName
+        commonName
+        sessionDate
+        dsoCategory
+        location
+        moonPhase
+        telescope
+        camera
+        mount
+        rotation
+        exposureCount
+        duration
+        filter
+      }
     }
   }
 `;
@@ -63,19 +79,32 @@ export const QUERY_LOCATIONS = gql`
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_CATEGORIES = gql`
+  query getCategories {
+    categories {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+      categoryName
+    }
+  }
+`;
+
+export const QUERY_SESSIONS = gql`
+  query getSessions {
+    sessions {
+      _id
+      targetName
+      commonName
+      sessionDate
+      dsoCategory
+      location
+      moonPhase
+      telescope
+      camera
+      mount
+      rotation
+      exposureCount
+      duration
+      filter
     }
   }
 `;
@@ -104,6 +133,22 @@ export const QUERY_ME = gql`
         _id
         filterName
         filterType
+      }
+      sessions {
+        _id
+        targetName
+        commonName
+        sessionDate
+        dsoCategory
+        location
+        moonPhase
+        telescope
+        camera
+        mount
+        rotation
+        exposureCount
+        duration
+        filter
       }
     }
   }

@@ -7,6 +7,7 @@ const typeDefs = `
     locations: [Location]
     instruments: [Instrument]
     filters: [Filter]
+    sessions: [Session]
   }
 
   type Location {
@@ -31,6 +32,28 @@ const typeDefs = `
     filterType: String
   }
 
+  type Category {
+    _id: ID
+    categoryName: String
+  }
+
+  type Session {
+    _id: ID
+    targetName: String
+    commonName: String
+    sessionDate : String
+    dsoCategory: String
+    location: String
+    moonPhase: String
+    telescope: String
+    camera: String
+    mount: String
+    rotation: String
+    exposureCount: String
+    duration: String
+    filter: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -44,6 +67,9 @@ const typeDefs = `
     location(place: String!): Location
     instruments: [Instrument]
     filters: [Filter]
+    categories: [Category]
+    sessions: [Session]
+    session(targetName: String!): Session
   }
 
   type Mutation {
@@ -52,6 +78,7 @@ const typeDefs = `
     addFilter(filterName: String!, filterType: String!): Filter
     addInstrument(telescope: String!, camera: String!, mount: String!): Instrument
     addLocation(place: String!, lat: String!, lon: String!, altitude: String, bortle: String): Location
+    addSession(targetName: String!, commonName: String, sessionDate: String!, dsoCategory: String!, location: String, moonPhase: String, telescope: String, camera: String, mount: String, rotation: String, exposureCount: String, duration: String, filter: String): Session
   }
 `;
 

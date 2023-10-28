@@ -15,5 +15,5 @@
 14. Added utils for auth as welll as mutastions and queries
 15. Added main.jsx, App.jsx and App.css
 16. Added Pages for Home, Login, SignUp, Profile and About
-
+17. Added Session document & updated mutations, queries, typeDefs and resolvers
 

@@ -35,8 +35,12 @@ export const ADD_FILTER = gql`
 `;
 
 export const ADD_INSTRUMENT = gql`
-  mutation addInstrument($telescope: String!, $camera: String!, $mount: String!) {
-    addInstrument(telescope: $telescope, camera: $camera  , mount: $mount) {
+  mutation addInstrument(
+    $telescope: String!
+    $camera: String!
+    $mount: String!
+  ) {
+    addInstrument(telescope: $telescope, camera: $camera, mount: $mount) {
       _id
       telescope
       camera
@@ -46,8 +50,20 @@ export const ADD_INSTRUMENT = gql`
 `;
 
 export const ADD_LOCATION = gql`
-  mutation addLocation($place: String!, $lat: String!, $lon: String!, $altitude: String, $bortle: String) {
-    addLocation(place: $place, lat: $lat , lon: $lon, altitude: $altitude, bortle: $bortle) {
+  mutation addLocation(
+    $place: String!
+    $lat: String!
+    $lon: String!
+    $altitude: String
+    $bortle: String
+  ) {
+    addLocation(
+      place: $place
+      lat: $lat
+      lon: $lon
+      altitude: $altitude
+      bortle: $bortle
+    ) {
       _id
       place
       lat
@@ -58,18 +74,24 @@ export const ADD_LOCATION = gql`
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+export const ADD_SESSION = gql`
+  mutation addSession($targetName: String!, $commonName: String, $sessionDate: String!, $dsoCategory: String!, $location: String!, $moonPhase: String, $telescope: String!, $camera: String!, $mount: String!, $rotation: String, $exposureCount: String!, $duration: String!, $filter: String) {
+    addSession(targetName: $targetName, commonName: $commonName, sessionDate: $sessionDate, dsoCategory: $dsoCategory, location: $location, moonPhase: $moonPhase, telescope: $telescope, camera: $camera, mount: $mount, rotation: $rotation, exposureCount: $exposureCount, duration: $duration, filter: $filter) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        createdAt
-      }
+      targetName
+      commonName
+      sessionDate
+      dsoCategory
+      location
+      moonPhase
+      telescope
+      camera
+      mount
+      rotation
+      exposureCount
+      duration
+      filter
     }
   }
 `;
+

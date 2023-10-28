@@ -38,6 +38,12 @@ const userSchema = new Schema({
       ref: 'Filter'
     },
   ],
+  sessions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Session'
+    },
+  ],  
 });
 
 userSchema.pre('save', async function (next) {
