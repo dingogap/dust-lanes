@@ -17,4 +17,5 @@
 16. Added Pages for Home, Login, SignUp, Profile and About
 17. Added Session document & updated mutations, queries, typeDefs and resolvers
 18. Add Session Data Form
+19. Updated Session Data Form
 

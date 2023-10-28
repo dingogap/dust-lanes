@@ -11,8 +11,16 @@ const SessionForm = () => {
   const [targetName, setTargetName] = useState('');
   const [commonName, setCommonName] = useState('');
   const [sessionDate, setSessionDate] = useState('');
-  const [targetCategory, setTargetCategory] = useState('');
+  const [dsoCategory, setDsoCategory] = useState('');
   const [location, setLocation] = useState('');
+  const [moonPhase, setMoonPhase] = useState('');
+  const [telescope, setTelescope] = useState('');
+  const [camera, setCamera] = useState('');
+  const [mount, setMount] = useState('');
+  const [rotation, setRotation] = useState('');
+  const [exposureCount, setExposureCount] = useState('');
+  const [duration, setDuration] = useState('');
+  const [filter, setFilter] = useState('');
 
   const [addSession, { error }] = useMutation(ADD_SESSION, {
     refetchQueries: [QUERY_SESSIONS, 'getSessions', QUERY_ME, 'me'],
@@ -27,16 +35,31 @@ const SessionForm = () => {
           targetName,
           commonName,
           sessionDate,
-          targetCategory,
+          dsoCategory,
           location,
+          moonPhase,
+          telescope,
+          camera,
+          mount,
+          rotation,
+          exposureCount,
+          duration,
+          filter,
         },
       });
 
       setTargetName('');
       setCommonName('');
       setSessionDate('');
-      setTargetCategory('');
+      setDsoCategory('');
       setLocation('');
+      setMoonPhase('');
+      setTelescope('');
+      setCamera('');
+      setMount('');
+      setRotation('');
+      setExposureCount(''), setDuration('');
+      setFilter('');
     } catch (err) {
       console.error(err);
     }
@@ -54,12 +77,37 @@ const SessionForm = () => {
     if (name === 'sessionDate') {
       setSessionDate(value);
     }
-    if (name === 'targetCategory') {
-      setTargetCategory(value);
+    if (name === 'dsoCategory') {
+      setDsoCategory(value);
     }
     if (name === 'location') {
       setLocation(value);
     }
+    if (name === 'moonPhase') {
+      setMoonPhase(value);
+    }
+    if (name === 'telescope') {
+      setTelescope(value);
+    }
+    if (name === 'camera') {
+      setCamera(value);
+    }
+    if (name === 'mount') {
+      setMount(value);
+    }
+    if (name === 'rotation') {
+      setRotation(value);
+    }
+    if (name === 'exposureCount') {
+      setExposureCount(value);
+    }
+    if (name === 'duration') {
+      setDuration(value);
+    }
+    if (name === 'filter') {
+      setFilter(value);
+    }
+
   };
 
   return (
@@ -105,10 +153,10 @@ const SessionForm = () => {
             </div>
             <div className='col-12 col-lg-9'>
               <input
-                name='targetCategory'
-                placeholder='targetCategory...'
+                name='dsoCategory'
+                placeholder='dsoCategory...'
                 type='text'
-                value={targetCategory}
+                value={dsoCategory}
                 className='form-input w-100'
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -120,6 +168,94 @@ const SessionForm = () => {
                 placeholder='location...'
                 type='text'
                 value={location}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='moonPhase'
+                placeholder='moonPhase...'
+                type='text'
+                value={moonPhase}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='telescope'
+                placeholder='telescope...'
+                type='text'
+                value={telescope}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='camera'
+                placeholder='camera...'
+                type='text'
+                value={camera}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='mount'
+                placeholder='mount...'
+                type='text'
+                value={mount}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='rotation'
+                placeholder='rotation...'
+                type='text'
+                value={rotation}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='exposureCount'
+                placeholder='exposure Counta...'
+                type='text'
+                value={exposureCount}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='duration'
+                placeholder='duration...'
+                type='text'
+                value={duration}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='filter'
+                placeholder='filter...'
+                type='text'
+                value={filter}
                 className='form-input w-100'
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
