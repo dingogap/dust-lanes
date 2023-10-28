@@ -8,3 +8,6 @@
 7. Create .env file in client & server folders
 8. Create .gitignore file in client & server folders
 9. Create server.js and created connnection.js, auth.js & dateFormats.js
+10. Added Models for Filters, Instruments, Locations, Sessions and Users
+11. Added typeDefs and resolvers for Filters, Instruments, Locations and Users
+12. Added seeds data for Users, Locations, Instruments and Filters 

@@ -1,0 +1,34 @@
+[
+  {
+    "filterName": "Optolong L-Pro",
+    "filterType": "Light Pollution"
+  },
+  {
+    "filterName": "Optolong UV/IR Cut",
+    "filterType": "Light Pollution"
+  },
+  {
+    "filterName": "Astronomik CLS CCD",
+    "filterType": "Light Pollution"
+  },
+  {
+    "filterName": "Antlia Triband RGB Ultra",
+    "filterType": "Light Pollution"
+  },
+  {
+    "filterName": "Antlia ALP-T Dualband Ha-Oiii",
+    "filterType": "Narrow Band"
+  },
+  {
+    "filterName": "Antlia ALP-T Dualband Hb-Sii",
+    "filterType": "Narrow Band"
+  },
+  {
+    "filterName": "Optolong L-Pro",
+    "filterType": "Light Pollution"
+  },
+  {
+    "filterName": "Optolong L-Extreme",
+    "filterType": "Narrow Band"
+  }
+]

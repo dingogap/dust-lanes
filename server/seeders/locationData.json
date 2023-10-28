@@ -1,0 +1,16 @@
+[
+  {
+    "place": "Wentworth Falls",
+    "lat": "-33.741796",
+    "lon": "150.378148",
+    "altitude": 872,
+    "bortle": 4
+  },
+  {
+    "place": "Orange",
+    "lat": "-33.263415",
+    "lon": "149.075035",
+    "altitude": 836,
+    "bortle": 4
+  }
+]

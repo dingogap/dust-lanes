@@ -1,0 +1,17 @@
+[
+    {
+        "telescope": "Skywatcher Esprit 120",
+        "camera": "ZWO ASI071MC Pro",
+        "mount": "iOptron CEM70G"
+      },
+      {
+        "telescope": "WO Redcat51",
+        "camera": "ZWO ASI183MC Pro",
+        "mount": "iOptron CEM26"
+      },
+      {
+        "telescope": "WO Redcat51",
+        "camera": "ZWO ASI183MC Pro",
+        "mount": "iOptron CEM26"
+      }
+  ]
