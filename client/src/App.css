@@ -1,0 +1,59 @@
+:root {
+  --colour-header: #192e42;
+  --colour-card-header: #0e2f44;
+  --colour-card: #e6eaf3;
+  --colour-border: #708fab;
+  --colour-active: #224353;
+  --colour-body: #bed1e1;
+}
+
+body {
+  background-color: var(--colour-body);
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+nav, .page-footer {
+  background-color: var(--colour-header);
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.stndrd-page {
+  min-height: calc(100vh - 142px);
+}
+ .auth-page {
+  min-height: calc(100vh - 127px);
+}
+
+.card {
+  background-color: var(--colour-card);
+}
+.card-action {
+  background-color: var(--colour-card-header) !important;
+}
+
+.brand {
+  display: flex;
+  margin-left: 11px;
+}
+.brand-name {
+  padding-left: 24px;
+  font-size:larger
+}
+
+.auth-card {
+  margin-top: 75px;
+}
+.auth-fail {
+  color:white;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 40px;
+  background-color: var(--colour-card-header) !important;
+}
+
+
