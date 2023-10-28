@@ -14,4 +14,6 @@
 13. Added Components for Header, Footer, Weather Data, Images and Filet, Instrument and Location Forms
 14. Added utils for auth as welll as mutastions and queries
 15. Added main.jsx, App.jsx and App.css
+16. Added Pages for Home, Login, SignUp, Profile and About
+
 
