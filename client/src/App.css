@@ -56,4 +56,9 @@ nav, .page-footer {
   background-color: var(--colour-card-header) !important;
 }
 
+input::placeholder {
+
+color: grey;
+}
+
 

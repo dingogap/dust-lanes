@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import FilterForm from '../components/FilterForm';
 import InstrumentForm from '../components/InstrumentForm';
 import LocationForm from '../components/LocationForm';
+import SessionForm from '../components/SessionForm';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -91,8 +92,8 @@ const Profile = () => {
                 ))
               : ''}
           </div>
-       
-        <div className='col s6 m4 l4'>
+
+          <div className='col s6 m4 l4'>
             <h5>Filters</h5>
             {user.filters.length ? (
               <ul>
@@ -106,8 +107,8 @@ const Profile = () => {
               ''
             )}
           </div>
-          </div> <div className='row'>
-
+        </div>{' '}
+        <div className='row'>
           <div className='col s6 m4 l4'>
             <h5>Add Locations</h5>
             <LocationForm />
@@ -120,6 +121,13 @@ const Profile = () => {
             <h5>Add Instruments</h5>
             <InstrumentForm />
           </div>
+        </div>
+        <div className='row'>
+          <div className='col s6 m4 l4'>
+            <h5>Add Sessions</h5>
+            <SessionForm />
+          </div>
+
         </div>
       </div>
     </main>
