@@ -20,6 +20,11 @@ nav, .page-footer {
   align-items: center;
 }
 
+.tabs {
+  overflow-x: unset;
+  overflow-y: unset;
+}
+
 .stndrd-page {
   min-height: calc(100vh - 142px);
 }

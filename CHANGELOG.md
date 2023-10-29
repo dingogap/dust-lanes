@@ -19,4 +19,5 @@
 18. Add Session Data Form
 19. Updated Session Data Form
 20. Added Tabs to Use Profile and Settings
+21. Refactored Tabs code to work better with React
 

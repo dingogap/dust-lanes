@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
+import getWeatherData from '../../utils/getWeather'
+
 import { ADD_SESSION } from '../../utils/mutations';
 import { QUERY_SESSIONS, QUERY_ME } from '../../utils/queries';
 
@@ -25,9 +27,20 @@ const SessionForm = () => {
   const [addSession, { error }] = useMutation(ADD_SESSION, {
     refetchQueries: [QUERY_SESSIONS, 'getSessions', QUERY_ME, 'me'],
   });
-
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    // setMoonPhase( getWeatherData('2023-10-28', '-33.263415', '149.075035')
+    // .then(weatherData => {
+    //     console.log('Weather Data:', weatherData);
+
+    // })
+    // .catch(error => {
+    //     console.error('Error:', error);
+    // }));
+
+
 
     try {
       const { data } = await addSession({

@@ -1,38 +1,29 @@
 import React, { useEffect } from 'react';
 
-const Tabs = () => {
+const Tabs = ({ tabs, defaultTab }) => {
   useEffect(() => {
-    // Initialize MaterializeCSS tabs
-    const tabElement = document.querySelectorAll('.tabs');
-    M.Tabs.init(tabElement);
+    // Initialize Materialize Tabs
+    const tabsInstance = document.querySelector('.tab');
+   window.M.Tabs.init(tabsInstance);
   }, []);
 
   return (
-    <div className='row'>
-      <div className='col s12'>
-        <ul className='tabs'>
-          <li className='tab col s3'>
-            <a className='active' href='#tab1'>Tab 1</a>
+    <div className="tabs">
+      <ul className="tab">
+        {tabs.map((tab, index) => (
+          <li key={index} className="tab">
+            <a href={`#${tab.id}`}>{tab.title}</a>
           </li>
-          <li className='tab col s3'>
-            <a href='#tab2'>Tab 2</a>
-          </li>
-          <li className='tab col s3'>
-            <a href='#tab3'>Tab 3</a>
-          </li>
-        </ul>
-      </div>
-      <div id='tab1' className='col s12'>
-        Tab 1 content
-      </div>
-      <div id='tab2' className='col s12'>
-        Tab 2 content
-      </div>
-      <div id='tab3' className='col s12'>
-        Tab 3 content
-      </div>
+        ))}
+      </ul>
+      {tabs.map((tab, index) => (
+        <div key={index} id={tab.id} className="col s12">
+          {tab.content}
+        </div>
+      ))}
     </div>
   );
 };
 
 export default Tabs;
+
