@@ -18,4 +18,5 @@
 17. Added Session document & updated mutations, queries, typeDefs and resolvers
 18. Add Session Data Form
 19. Updated Session Data Form
+20. Added Tabs to Use Profile and Settings
 
