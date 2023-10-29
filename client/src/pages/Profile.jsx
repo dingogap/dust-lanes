@@ -96,7 +96,21 @@ const Profile = () => {
     {
       id: 'tab3',
       title: 'Sessions',
-      content: <p>Content for Tab 3</p>,
+      content: (
+        <div>
+          <div className='row'>
+            <div id='sessions' className='col s12'>
+              <h5>Sessions</h5>Sessions Data goes here
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col s6 m4 l4'>
+              <h5>Add Sessions</h5>
+              <SessionForm />
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
       id: 'tab4',
