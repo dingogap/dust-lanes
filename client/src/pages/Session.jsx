@@ -13,7 +13,12 @@ const Session = () => {
   const user = data?.me || data?.user || {};
 
   var { loading: categoriesloading, data: categoriesData } = useQuery(QUERY_CATEGORIES);
-  const cats = data?.categories || [];
+  const cats = categoriesData?.categories || [];
+
+  const parsedValues = cats.map((object) => {
+    return object.categoryName;
+  });
+  console.log(parsedValues);
 
   if (loading) {
     return (
