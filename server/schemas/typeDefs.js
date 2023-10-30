@@ -52,6 +52,7 @@ const typeDefs = `
     exposureCount: String
     duration: String
     filter: String
+    image: String
   }
 
   type Auth {
@@ -78,7 +79,7 @@ const typeDefs = `
     addFilter(filterName: String!, filterType: String!): Filter
     addInstrument(telescope: String!, camera: String!, mount: String!): Instrument
     addLocation(place: String!, lat: String!, lon: String!, altitude: String, bortle: String): Location
-    addSession(targetName: String!, commonName: String, sessionDate: String!, dsoCategory: String!, location: String, moonPhase: String, telescope: String, camera: String, mount: String, rotation: String, exposureCount: String, duration: String, filter: String): Session
+    addSession(targetName: String!, commonName: String, sessionDate: String!, dsoCategory: String!, location: String, moonPhase: String, telescope: String, camera: String, mount: String, rotation: String, exposureCount: String, duration: String, filter: String, image: String): Session
   }
 `;
 

@@ -20,8 +20,10 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
+  
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+
     return <Navigate to='/me' />;
   }
 
@@ -91,7 +93,7 @@ const Profile = () => {
     {
       id: 'tab2',
       title: 'Projects',
-      content: <p>Content for Tab 2</p>,
+      content: <p>Project Stuff goes here</p>,
     },
     {
       id: 'tab3',
@@ -168,9 +170,10 @@ const Profile = () => {
   return (
     <main className='stndrd-page'>
       <div className='container'>
-        <h4>{user.username}s Imaging Journal</h4>
+        <h4>{user.username}'s Imaging Journal</h4>
+        <div className='col s12'>
         <Tabs tabs={tabs} defaultTab='tab1' />
-      </div>
+      </div></div>
     </main>
   );
 };

@@ -23,6 +23,7 @@ nav, .page-footer {
 .tabs {
   overflow-x: unset;
   overflow-y: unset;
+  /* overflow: hidden; */
 }
 
 .stndrd-page {

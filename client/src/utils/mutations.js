@@ -75,8 +75,8 @@ export const ADD_LOCATION = gql`
 `;
 
 export const ADD_SESSION = gql`
-  mutation addSession($targetName: String!, $commonName: String, $sessionDate: String!, $dsoCategory: String!, $location: String!, $moonPhase: String, $telescope: String!, $camera: String!, $mount: String!, $rotation: String, $exposureCount: String!, $duration: String!, $filter: String) {
-    addSession(targetName: $targetName, commonName: $commonName, sessionDate: $sessionDate, dsoCategory: $dsoCategory, location: $location, moonPhase: $moonPhase, telescope: $telescope, camera: $camera, mount: $mount, rotation: $rotation, exposureCount: $exposureCount, duration: $duration, filter: $filter) {
+  mutation addSession($targetName: String!, $commonName: String, $sessionDate: String!, $dsoCategory: String!, $location: String!, $moonPhase: String, $telescope: String!, $camera: String!, $mount: String!, $rotation: String, $exposureCount: String!, $duration: String!, $filter: String, $image: String) {
+    addSession(targetName: $targetName, commonName: $commonName, sessionDate: $sessionDate, dsoCategory: $dsoCategory, location: $location, moonPhase: $moonPhase, telescope: $telescope, camera: $camera, mount: $mount, rotation: $rotation, exposureCount: $exposureCount, duration: $duration, filter: $filter, image: $image) {
       _id
       targetName
       commonName
@@ -91,6 +91,7 @@ export const ADD_SESSION = gql`
       exposureCount
       duration
       filter
+      image
     }
   }
 `;

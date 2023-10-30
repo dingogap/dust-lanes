@@ -40,6 +40,7 @@ export const QUERY_USER = gql`
         exposureCount
         duration
         filter
+        image
       }
     }
   }
@@ -105,6 +106,7 @@ export const QUERY_SESSIONS = gql`
       exposureCount
       duration
       filter
+      image
     }
   }
 `;
@@ -149,6 +151,7 @@ export const QUERY_ME = gql`
         exposureCount
         duration
         filter
+        image
       }
     }
   }

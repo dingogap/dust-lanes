@@ -133,7 +133,7 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addSession: async (parent, { targetName, commonName, sessionDate, dsoCategory, location, moonPhase, telescope, camera, mount, rotation, exposureCount, duration, filter }, context) => {
+    addSession: async (parent, { targetName, commonName, sessionDate, dsoCategory, location, moonPhase, telescope, camera, mount, rotation, exposureCount, duration, filter, image }, context) => {
       if (context.user) {
         const session = await Session.create({
           targetName,
@@ -149,6 +149,7 @@ const resolvers = {
           exposureCount,
           duration,
           filter,
+          image,
         });
 
         await User.findOneAndUpdate(

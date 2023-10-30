@@ -68,6 +68,11 @@ const sessionSchema = new Schema({
     required: true,
     trim: true,
   },
+  image: {
+    type: String,
+    required: true,
+    trim: true,
+  },  
 });
 const Session = model('Session', sessionSchema);
 

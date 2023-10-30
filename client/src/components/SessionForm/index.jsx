@@ -23,6 +23,7 @@ const SessionForm = () => {
   const [exposureCount, setExposureCount] = useState('');
   const [duration, setDuration] = useState('');
   const [filter, setFilter] = useState('');
+  const [image, setImage] = useState('');
 
   const [addSession, { error }] = useMutation(ADD_SESSION, {
     refetchQueries: [QUERY_SESSIONS, 'getSessions', QUERY_ME, 'me'],
@@ -58,6 +59,7 @@ const SessionForm = () => {
           exposureCount,
           duration,
           filter,
+          image,
         },
       });
 
@@ -73,6 +75,7 @@ const SessionForm = () => {
       setRotation('');
       setExposureCount(''), setDuration('');
       setFilter('');
+      setImage('');
     } catch (err) {
       console.error(err);
     }
@@ -119,6 +122,9 @@ const SessionForm = () => {
     }
     if (name === 'filter') {
       setFilter(value);
+    }
+    if (name === 'image') {
+      setImage(value);
     }
 
   };
@@ -274,6 +280,17 @@ const SessionForm = () => {
                 onChange={handleChange}
               />
             </div>
+            <div className='col-12 col-lg-9'>
+              <input
+                name='image'
+                placeholder='image...'
+                type='text'
+                value={image}
+                className='form-input w-100'
+                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                onChange={handleChange}
+              />
+            </div>            
             <div className='col-12 col-lg-3'>
               <button className='btn btn-primary btn-block py-3' type='submit'>
                 Add Session

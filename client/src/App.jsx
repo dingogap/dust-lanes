@@ -42,7 +42,7 @@ function App() {
       {/* <div className='flex-column justify-flex-start'> */}
         <Header />
 
-          <div className='container'>
+          <div className=''>
             <Outlet />
           </div>
         <Footer />
