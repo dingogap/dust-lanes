@@ -60,6 +60,10 @@ const typeDefs = `
     user: User
   }
 
+  type Weather {
+    moonphase: Float
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -71,6 +75,7 @@ const typeDefs = `
     categories: [Category]
     sessions: [Session]
     session(targetName: String!): Session
+    weather(date: String, lat: String, lon: String): Weather
   }
 
   type Mutation {

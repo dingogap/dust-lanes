@@ -1,5 +1,13 @@
-const { User, Location, Instrument, Filter, Category, Session } = require('../models');
+const {
+  User,
+  Location,
+  Instrument,
+  Filter,
+  Category,
+  Session,
+} = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
+const getWeather = require('../utils/getWeather');
 
 const resolvers = {
   Query: {
@@ -48,8 +56,13 @@ const resolvers = {
       return Session.find();
     },
     session: async (parent, { targetName }) => {
-      return Session.findOne({ targetName  });
-    },         
+      return Session.findOne({ targetName });
+    },
+    weather: async (parent, { date, lat, lon }) => {
+      const results = await getWeather(date, lat, lon);
+      console.log(results);
+      return results.days[0];
+    },
   },
 
   Mutation: {
@@ -112,8 +125,12 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    
-    addLocation: async (parent, { place, lat, lon, altitude, bortle }, context) => {
+
+    addLocation: async (
+      parent,
+      { place, lat, lon, altitude, bortle },
+      context
+    ) => {
       if (context.user) {
         const location = await Location.create({
           place,
@@ -133,7 +150,26 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
-    addSession: async (parent, { targetName, commonName, sessionDate, dsoCategory, location, moonPhase, telescope, camera, mount, rotation, exposureCount, duration, filter, image }, context) => {
+    addSession: async (
+      parent,
+      {
+        targetName,
+        commonName,
+        sessionDate,
+        dsoCategory,
+        location,
+        moonPhase,
+        telescope,
+        camera,
+        mount,
+        rotation,
+        exposureCount,
+        duration,
+        filter,
+        image,
+      },
+      context
+    ) => {
       if (context.user) {
         const session = await Session.create({
           targetName,
@@ -161,7 +197,7 @@ const resolvers = {
       }
       throw AuthenticationError;
       ('You need to be logged in!');
-    },    
+    },
   },
 };
 

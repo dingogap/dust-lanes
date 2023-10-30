@@ -102,7 +102,31 @@ const Profile = () => {
         <div>
           <div className='row'>
             <div id='sessions' className='col s12'>
-              <h5>Sessions</h5>Sessions Data goes here
+              <h5>Sessions</h5><div className='row'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Target</th>
+                    <th>Common Name</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Telescope</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.sessions.length
+                    ? user.sessions.map((i, j) => (
+                        <tr key={j}>
+                          <td>{i.targetName}</td>
+                          <td>{i.commonName}</td>
+                          <td>{i.sessionDate}</td>
+                          <td>{i.dsoCategory}</td>
+                          <td>{i.telescope}</td>
+                        </tr>
+                      ))
+                    : ' '} 
+                </tbody>
+              </table></div>
             </div>
           </div>
           <div className='row'>

@@ -20,4 +20,6 @@
 19. Updated Session Data Form
 20. Added Tabs to Use Profile and Settings
 21. Refactored Tabs code to work better with React
+22. Added code to display sessions
+23. Moved WeatherAPI to backend
 

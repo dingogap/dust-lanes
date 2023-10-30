@@ -1,17 +1,18 @@
 // import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { Navigate, useParams } from 'react-router-dom';
-import Tabs from '../components/Tabs';
+import { useParams } from 'react-router-dom';
+
 import { QUERY_USER, QUERY_ME, QUERY_CATEGORIES } from '../utils/queries';
 
 const Session = () => {
+
   const { username: userParam } = useParams();
-  var { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
+  var { loading, error, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam }
   });
   const user = data?.me || data?.user || {};
 
-  var { loading, data } = useQuery(QUERY_CATEGORIES);
+  var { loading: categoriesloading, data: categoriesData } = useQuery(QUERY_CATEGORIES);
   const cats = data?.categories || [];
 
   if (loading) {
@@ -26,6 +27,10 @@ const Session = () => {
     );
   }
 
+  if (error) {
+    // Handle errors here
+    return <div>Error: {error.message}</div>;
+  }
   return (
     <main className='stndrd-page'>
       <div className='container'>
@@ -56,7 +61,7 @@ const Session = () => {
                           <td>{i.telescope}</td>
                         </tr>
                       ))
-                    : ' '}
+                    : ' '} 
                 </tbody>
               </table>
             </div>
