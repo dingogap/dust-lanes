@@ -1,9 +1,10 @@
 const axios = require('axios');
 
 async function getWeatherData(date, lat, lon) {
-  const apiKey = process.env.VISUALCROSSING_KEY;
+//   const apiKey = process.env.VISUALCROSSING_KEY;
+  const apiKey = 'Y2CJJFX9EGY7GQRS6DP74QAV3'
   const apiUrl =
-    'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/${date}?key=${apiKey}&unitGroup=metric`;
 
   try {
     const response = await axios.get(apiUrl, {

@@ -12,6 +12,7 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import About from './pages/About';
 import Session from './pages/Session';
+import Target from './pages/Target';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: '/targets',
+        element: <Target />,
       },
       {
         path: '/sessions',

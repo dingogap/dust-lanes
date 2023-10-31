@@ -5,6 +5,7 @@ const {
   Filter,
   Category,
   Session,
+  Target,
 } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const getWeather = require('../utils/getWeather');
@@ -16,14 +17,16 @@ const resolvers = {
         .populate('locations')
         .populate('instruments')
         .populate('filters')
-        .populate('sessions');
+        .populate('sessions')
+        .populate('targets');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .populate('locations')
         .populate('instruments')
         .populate('filters')
-        .populate('sessions');
+        .populate('sessions')
+        .populate('targets');
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -31,7 +34,8 @@ const resolvers = {
           .populate('locations')
           .populate('instruments')
           .populate('filters')
-          .populate('sessions');
+          .populate('sessions')
+          .populate('targets');
       }
       throw AuthenticationError;
     },
@@ -57,6 +61,12 @@ const resolvers = {
     },
     session: async (parent, { targetName }) => {
       return Session.findOne({ targetName });
+    },
+    targets: async () => {
+      return Target.find();
+    },
+    target: async (parent, { targetName }) => {
+      return Target.findOne({ targetName });
     },
     weather: async (parent, { date, lat, lon }) => {
       const results = await getWeather(date, lat, lon);
@@ -150,6 +160,7 @@ const resolvers = {
       throw AuthenticationError;
       ('You need to be logged in!');
     },
+
     addSession: async (
       parent,
       {
@@ -187,13 +198,31 @@ const resolvers = {
           filter,
           image,
         });
+        return target;
+      }
+      throw AuthenticationError;
+      ('You need to be logged in!');
+    },
+
+    addTarget: async (
+      parent,
+      { targetName, commonName, dsoCategory, image },
+      context
+    ) => {
+      if (context.user) {
+        const target = await Target.create({
+          targetName,
+          commonName,
+          dsoCategory,
+          image,
+        });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { sessions: session._id } }
+          { $addToSet: { targets: target._id } }
         );
 
-        return session;
+        return target;
       }
       throw AuthenticationError;
       ('You need to be logged in!');

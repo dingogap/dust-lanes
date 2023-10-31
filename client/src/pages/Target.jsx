@@ -6,10 +6,9 @@ import {
   QUERY_USER,
   QUERY_ME,
   QUERY_CATEGORIES,
-  QUERY_WEATHER,
 } from '../utils/queries';
 
-const Session = () => {
+const Target = () => {
   const { username: userParam } = useParams();
   var { loading, error, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
@@ -49,7 +48,7 @@ const Session = () => {
       {/* <div className='container'> */}
       <h4>{user.username}s Imaging Journal</h4>
       <div className='row'>
-        <h5>Sessions</h5>
+        <h5>Targets</h5>
         <div className='row'>
           <div className='col S12 m3 l2'> Filters</div>
           <div className='col S12 m9 l10'>
@@ -58,22 +57,16 @@ const Session = () => {
                 <tr>
                   <th>Target</th>
                   <th>Common Name</th>
-                  <th>Date</th>
                   <th>Category</th>
-                  <th>Telescope</th>
-                  <th>Camera</th>
                 </tr>
               </thead>
               <tbody>
-                {user.sessions.length
-                  ? user.sessions.map((i, j) => (
+                {user.targets.length
+                  ? user.targets.map((i, j) => (
                       <tr key={j}>
                         <td>{i.targetName}</td>
                         <td>{i.commonName}</td>
-                        <td>{i.sessionDate}</td>
                         <td>{i.dsoCategory}</td>
-                        <td>{i.telescope}</td>
-                        <td>{i.camera}</td>
                       </tr>
                     ))
                   : ' '}
@@ -87,4 +80,4 @@ const Session = () => {
   );
 };
 
-export default Session;
+export default Target;

@@ -5,6 +5,7 @@ import FilterForm from '../components/FilterForm';
 import InstrumentForm from '../components/InstrumentForm';
 import LocationForm from '../components/LocationForm';
 import SessionForm from '../components/SessionForm';
+import TargetForm from '../components/TargetForm';
 import Tabs from '../components/Tabs';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -33,6 +34,7 @@ const Profile = () => {
         <div className='row'>
           <div>
             <h5>Loading...</h5>
+            <div className="indeterminate"></div>
           </div>
         </div>
       </main>
@@ -92,8 +94,42 @@ const Profile = () => {
     },
     {
       id: 'tab2',
-      title: 'Projects',
-      content: <p>Project Stuff goes here</p>,
+      title: 'Targets',
+      content: (
+        <div>
+          <div className='row'>
+            <div id='targets' className='col s12'>
+              <h5>Targets</h5><div className='row'>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Target</th>
+                    <th>Common Name</th>
+                    <th>Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {user.targets.length
+                    ? user.targets.map((i, j) => (
+                        <tr key={j}>
+                          <td>{i.targetName}</td>
+                          <td>{i.commonName}</td>
+                          <td>{i.dsoCategory}</td>
+                        </tr>
+                      ))
+                    : ' '} 
+                </tbody>
+              </table></div>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col s6 m4 l4'>
+              <h5>Add Targets</h5>
+              <TargetForm />
+            </div>
+          </div>
+        </div>
+      ),
     },
     {
       id: 'tab3',
@@ -193,11 +229,12 @@ const Profile = () => {
 
   return (
     <main className='stndrd-page'>
-      <div className='container'>
+      {/* <div className='container'> */}
         <h4>{user.username}'s Imaging Journal</h4>
         <div className='col s12'>
         <Tabs tabs={tabs} defaultTab='tab1' />
-      </div></div>
+      </div>
+      {/* </div> */}
     </main>
   );
 };

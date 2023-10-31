@@ -22,4 +22,6 @@
 21. Refactored Tabs code to work better with React
 22. Added code to display sessions
 23. Moved WeatherAPI to backend
+24. Implemented GraphQl queries to the backend
+25. Added Targets document and page
 

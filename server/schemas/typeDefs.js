@@ -8,6 +8,7 @@ const typeDefs = `
     instruments: [Instrument]
     filters: [Filter]
     sessions: [Session]
+    targets: [Target]
   }
 
   type Location {
@@ -55,6 +56,14 @@ const typeDefs = `
     image: String
   }
 
+  type Target {
+    _id: ID
+    targetName: String
+    commonName: String
+    dsoCategory: String
+    image: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -62,6 +71,11 @@ const typeDefs = `
 
   type Weather {
     moonphase: Float
+    sunrise: String
+    sunset: String
+    cloudcover: Float
+    visibility: Float
+    precipprob: Float
   }
 
   type Query {
@@ -74,6 +88,8 @@ const typeDefs = `
     filters: [Filter]
     categories: [Category]
     sessions: [Session]
+    targets: [Target]
+    target(targetName: String!): Target
     session(targetName: String!): Session
     weather(date: String, lat: String, lon: String): Weather
   }
@@ -85,6 +101,7 @@ const typeDefs = `
     addInstrument(telescope: String!, camera: String!, mount: String!): Instrument
     addLocation(place: String!, lat: String!, lon: String!, altitude: String, bortle: String): Location
     addSession(targetName: String!, commonName: String, sessionDate: String!, dsoCategory: String!, location: String, moonPhase: String, telescope: String, camera: String, mount: String, rotation: String, exposureCount: String, duration: String, filter: String, image: String): Session
+    addTarget(targetName: String!, commonName: String, dsoCategory: String!, image: String): Target
   }
 `;
 

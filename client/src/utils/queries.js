@@ -42,6 +42,13 @@ export const QUERY_USER = gql`
         filter
         image
       }
+      targets {
+        _id
+        targetName
+        commonName
+        dsoCategory
+        image
+      }
     }
   }
 `;
@@ -111,6 +118,31 @@ export const QUERY_SESSIONS = gql`
   }
 `;
 
+export const QUERY_TARGETS = gql`
+  query getTargets {
+    targets {
+      _id
+      targetName
+      commonName
+      dsoCategory
+      image
+    }
+  }
+`;
+
+export const QUERY_WEATHER = gql`
+query getWeather($date: String!, $lat: String!, $lon: String) {
+  weather(date: $date, lat: $lat, lon: $lon) {
+    moonphase
+    sunrise
+    sunset
+    cloudcover
+    visibility
+    precipprob
+  }
+}
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {
@@ -153,6 +185,13 @@ export const QUERY_ME = gql`
         filter
         image
       }
+      targets {
+        _id
+        targetName
+        commonName
+        dsoCategory
+        image
+      }      
     }
   }
 `;

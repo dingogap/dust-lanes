@@ -96,3 +96,15 @@ export const ADD_SESSION = gql`
   }
 `;
 
+export const ADD_TARGET = gql`
+  mutation addTarget($targetName: String!, $commonName: String, $dsoCategory: String!, $image: String) {
+    addTarget(targetName: $targetName, commonName: $commonName, dsoCategory: $dsoCategory, image: $image) {
+      _id
+      targetName
+      commonName
+      dsoCategory
+      image
+    }
+  }
+`;
+
