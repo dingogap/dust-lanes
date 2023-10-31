@@ -11,7 +11,7 @@ const Footer = () => {
               <img src={item.icon} width='35' height='35' alt={item.name} />
             </Link>
           ))} */}
-          <span className='copyright'>© 2023 - Peter Medbury</span>
+          <span className='copyright right'>© 2023 - Peter Medbury</span>
         </div>
       </div>
     </footer>

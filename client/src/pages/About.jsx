@@ -34,9 +34,9 @@ const About = () => {
 
         <div className='row'>
           <div className='col s12 m8 l8'>
-            <h5>Save what's really important to your astrophotgraphy</h5>
+            <h5>Save your important astrophotgraphy session data!</h5>
             <h5>
-              Find that infomation you need right when you're looking for it!
+              Find that infomation you need right when you need it!
             </h5>
             <br />
             <h6>Dust Lanes stores:</h6>
