@@ -27,3 +27,4 @@
 26. Updated About Page to show information and display Todays Astro Weather
 27. Added Cover Photo to Home Page
 28. Updated CSS for NavBar responsiveness
+29. Updated README.md
