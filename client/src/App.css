@@ -67,4 +67,18 @@ input::placeholder {
 color: grey;
 }
 
+/* dt {
+  float:left;
+}
+dd {
+  float: right;
+} */
+dl {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
 
+.about-li {
+list-style-type: disc !important;
+padding-left: 30px;
+}

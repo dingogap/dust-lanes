@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import getWeatherData from '../../utils/getWeather'
-
 import { ADD_TARGET } from '../../utils/mutations';
 import { QUERY_TARGETS, QUERY_ME } from '../../utils/queries';
 

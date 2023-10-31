@@ -46,9 +46,8 @@ const Target = () => {
   return (
     <main className='stndrd-page'>
       {/* <div className='container'> */}
-      <h4>{user.username}s Imaging Journal</h4>
+      <h4>{user.username}'s Astrophotography Targets</h4>
       <div className='row'>
-        <h5>Targets</h5>
         <div className='row'>
           <div className='col S12 m3 l2'> Filters</div>
           <div className='col S12 m9 l10'>

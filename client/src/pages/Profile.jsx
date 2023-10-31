@@ -8,7 +8,7 @@ import SessionForm from '../components/SessionForm';
 import TargetForm from '../components/TargetForm';
 import Tabs from '../components/Tabs';
 
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, } from '../utils/queries';
 
 import Auth from '../utils/auth';
 import { MdDelete } from 'react-icons/md';

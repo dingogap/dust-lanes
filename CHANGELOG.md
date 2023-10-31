@@ -24,4 +24,5 @@
 23. Moved WeatherAPI to backend
 24. Implemented GraphQl queries to the backend
 25. Added Targets document and page
+26. Updated About Page to show information and display Todays Astro Weather
 

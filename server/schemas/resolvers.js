@@ -70,7 +70,6 @@ const resolvers = {
     },
     weather: async (parent, { date, lat, lon }) => {
       const results = await getWeather(date, lat, lon);
-      console.log(results);
       return results.days[0];
     },
   },
