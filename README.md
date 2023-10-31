@@ -39,7 +39,7 @@ Dust Lanes is built using:
 11. Axios
 12. VisualCrossing WeatherAPI
 
-## ChangeLog
+## Change Log
 
 Read the Dust Lanes [ChangeLog][def3]
 
