@@ -26,3 +26,4 @@
 25. Added Targets document and page
 26. Updated About Page to show information and display Todays Astro Weather
 27. Added Cover Photo to Home Page
+28. Updated CSS for NavBar responsiveness

@@ -27,10 +27,14 @@ nav, .page-footer {
 }
 
 .stndrd-page {
-  min-height: calc(100vh - 142px);
+  min-height: calc(100vh - 127px);
 }
  .auth-page {
   min-height: calc(100vh - 127px);
+}
+
+.home-page {
+  min-height: calc(100vh - 105px);
 }
 
 .card {
@@ -81,4 +85,23 @@ dl {
 .about-li {
 list-style-type: disc !important;
 padding-left: 30px;
+}
+
+.copyright {
+  margin-top: -10px;
+}
+@media only screen and (max-width: 545px) {
+  .brand-name {
+    font-size:large
+  }
+  .brand img {
+    width: 50px;
+    height: 55px;
+  }
+}
+
+@media only screen and (max-width: 545px) {
+  .brand-name {
+    font-size:small
+  }
 }

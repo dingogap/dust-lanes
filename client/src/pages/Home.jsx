@@ -5,9 +5,9 @@ import m42 from '../components/Images/m42.jpg';
 
 const Home = () => {
   return (
-    <main className='stndrd-page'><br/><br/>
+    <main className='home-page'><br/><br/>
 
-<img className="responsive-img" src={m42}/>
+<img className="responsive-img" src={m42} alt='Orion Nebula'/>
 
 
 
