@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import SelectTag from '../SelectTag';
 
 import { ADD_SESSION } from '../../utils/mutations';
 import { QUERY_SESSIONS, QUERY_ME } from '../../utils/queries';
