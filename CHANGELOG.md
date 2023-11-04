@@ -29,3 +29,4 @@
 28. Updated CSS for NavBar responsiveness
 29. Updated README.md
 30. Added SelectTag component for lookups in Forms
+31. Updated formateDate.js in Utils & the way it is called in About Page

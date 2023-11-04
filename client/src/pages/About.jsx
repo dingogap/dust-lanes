@@ -2,12 +2,16 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_WEATHER } from '../utils/queries';
 
-import formatDate from '../utils/formatDate';
+import formatDate from '../utils/formatDate'
 
 const About = () => {
+
+  var formattedDate = formatDate(new Date())
+
   var { loading, error, data } = useQuery(QUERY_WEATHER, {
     variables: {
-      date: formatDate(new Date()),
+      // date: DateFormatter(new Date()),
+      date: formattedDate,
       lat: '-33.263415', // Latitude
       lon: '149.075035', // Longitude
     },
@@ -73,6 +77,8 @@ const About = () => {
               </div>
               <div className='card-content white-text'>
                 <dl>
+                <dt>Date:</dt>
+                  <dd>{formattedDate}</dd>
                   <dt>Sunrise:</dt>
                   <dd>{data.weather.sunrise}</dd>
                   <dt>Sunset:</dt>

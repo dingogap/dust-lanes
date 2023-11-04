@@ -1,9 +1,12 @@
-export default function formatDate(dated) {
+const formatDate = (inputDate) => {
+    if (inputDate instanceof Date && !isNaN(inputDate)) {
+      const year = inputDate.getFullYear();
+      const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+      const day = String(inputDate.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    } else {
+      return 'Invalid Date';
+    }
+  };
 
-    const year = dated.getFullYear();
-    const month = String(dated.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-    const day = String(dated.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
-  
-  
+  export default formatDate
