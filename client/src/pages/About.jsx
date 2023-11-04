@@ -2,11 +2,10 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_WEATHER } from '../utils/queries';
 
-import formatDate from '../utils/formatDate'
+import formatDate from '../utils/formatDate';
 
 const About = () => {
-
-  var formattedDate = formatDate(new Date())
+  var formattedDate = formatDate(new Date());
 
   var { loading, error, data } = useQuery(QUERY_WEATHER, {
     variables: {
@@ -39,36 +38,43 @@ const About = () => {
         <div className='row'>
           <div className='col s12 m8 l8'>
             <h5>Save your important astrophotgraphy session data!</h5>
-            <h5>
-              Find that infomation you need right when you need it!
-            </h5>
-            <br />
-            <h6>Dust Lanes stores:</h6>
-
-            <ul className='about-li'>
-              <li>target names</li>
-              <li>location data</li>
-              <li>instrument details</li>
-              <li>exposure settings:</li>
-              <li>exposurre count</li>
-              <li>exposure length</li>
-              <li>camera rotation</li>
-              <li>sensor temperature</li>
-              <li>filter</li>
-            </ul>
-
+            <h5>Find that infomation you need right when you need it!</h5>
+            <br />{' '}
             <h6>
               Dust Lanes handles your multi-session projects and your complex
               mosaics
-            </h6>
-
-            <h6>No more: </h6>
-            <ul className='about-li'>
-              <li>Searching through physical logbooks</li>
-              <li>Messy Spreadsheets</li>
-              <li>Scanning imaging records</li>
-              <li>Hoping for the best...</li>
-            </ul>
+            </h6><br/>
+            <dl class='about-lists'>
+              <dt class='about-heading'>
+                <strong>Storing:</strong>
+              </dt>
+              <dd>
+                <ul className='about-li'>
+                  <li>target names</li>
+                  <li>location data</li>
+                  <li>instrument details</li>
+                  <li>exposure settings:</li>
+                  <li>exposurre count</li>
+                  <li>exposure length</li>
+                  <li>camera rotation</li>
+                  <li>sensor temperature</li>
+                  <li>filter</li>
+                </ul>
+              </dd>
+            </dl>
+            <dl class='about-lists'>
+              <dt class='about-heading'>
+                <strong>No more:</strong>
+              </dt>
+              <dd>
+                <ul>
+                  <li>Searching through physical logbooks</li>
+                  <li>Messy Spreadsheets</li>
+                  <li>Scanning imaging records</li>
+                  <li>Hoping for the best...</li>
+                </ul>
+              </dd>
+            </dl>
           </div>
           <div className='col s12 m4 l4'>
             <div className='card blue-grey darken-1'>
@@ -77,7 +83,7 @@ const About = () => {
               </div>
               <div className='card-content white-text'>
                 <dl>
-                <dt>Date:</dt>
+                  <dt>Date:</dt>
                   <dd>{formattedDate}</dd>
                   <dt>Sunrise:</dt>
                   <dd>{data.weather.sunrise}</dd>
