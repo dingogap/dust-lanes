@@ -71,11 +71,7 @@ const Profile = () => {
             </div>
             <div className='col s12 m6 l6'>
               <h5>Locations</h5>
-              {user.locations.length ? (
                 <LocationsList userData = {user} />
-              ) : (
-                ''
-              )}
             </div>
             <div className='row'>
               <div className='col s6 m4 l4'>
