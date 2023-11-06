@@ -32,3 +32,4 @@
 31. Updated formateDate.js in Utils & the way it is called in About Page
 32. Adjusted dl styling on about page
 33. Render Locations on Profile page using React component
+34. Render Instruments on Profile Page using React component

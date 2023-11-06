@@ -1,4 +1,4 @@
-function LocationsList({ locationData }) {
+function LocationList({ locationData }) {
   return locationData.length
     ? locationData.map((i, j) => (
         <dl key={j} className='about-lists'>
@@ -17,4 +17,4 @@ function LocationsList({ locationData }) {
     : '';
 }
 
-export default LocationsList;
+export default LocationList;
