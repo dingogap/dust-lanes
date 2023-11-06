@@ -1,6 +1,6 @@
-function LocationsList({ userData }) {
-  return userData.locations.length
-    ? userData.locations.map((i, j) => (
+function LocationsList({ locationData }) {
+  return locationData.length
+    ? locationData.map((i, j) => (
         <dl key={j} className='about-lists'>
           <dt>Place:</dt>
           <dd>{i.place}</dd>
