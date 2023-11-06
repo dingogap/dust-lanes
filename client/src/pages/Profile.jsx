@@ -7,8 +7,9 @@ import LocationForm from '../components/LocationForm';
 import SessionForm from '../components/SessionForm';
 import TargetForm from '../components/TargetForm';
 import Tabs from '../components/Tabs';
+import LocationsList from '../components/LocationsList';
 
-import { QUERY_USER, QUERY_ME, } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 import { MdDelete } from 'react-icons/md';
@@ -21,10 +22,9 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-  
+
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-
     return <Navigate to='/me' />;
   }
 
@@ -34,7 +34,7 @@ const Profile = () => {
         <div className='row'>
           <div>
             <h5>Loading...</h5>
-            <div className="indeterminate"></div>
+            <div className='indeterminate'></div>
           </div>
         </div>
       </main>
@@ -71,16 +71,11 @@ const Profile = () => {
             </div>
             <div className='col s12 m6 l6'>
               <h5>Locations</h5>
-              {user.locations.length
-                ? user.locations.map((i, j) => (
-                    <ul key={j}>
-                      <li>{i.place}</li>
-                      <li>{i.lat}</li>
-                      <li>{i.lon}</li>
-                      <li>{i.altitude}</li>
-                    </ul>
-                  ))
-                : ''}
+              {user.locations.length ? (
+                <LocationsList userData = {user} />
+              ) : (
+                ''
+              )}
             </div>
             <div className='row'>
               <div className='col s6 m4 l4'>
@@ -99,27 +94,29 @@ const Profile = () => {
         <div>
           <div className='row'>
             <div id='targets' className='col s12'>
-              <h5>Targets</h5><div className='row'>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Target</th>
-                    <th>Common Name</th>
-                    <th>Category</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {user.targets.length
-                    ? user.targets.map((i, j) => (
-                        <tr key={j}>
-                          <td>{i.targetName}</td>
-                          <td>{i.commonName}</td>
-                          <td>{i.dsoCategory}</td>
-                        </tr>
-                      ))
-                    : ' '} 
-                </tbody>
-              </table></div>
+              <h5>Targets</h5>
+              <div className='row'>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Target</th>
+                      <th>Common Name</th>
+                      <th>Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {user.targets.length
+                      ? user.targets.map((i, j) => (
+                          <tr key={j}>
+                            <td>{i.targetName}</td>
+                            <td>{i.commonName}</td>
+                            <td>{i.dsoCategory}</td>
+                          </tr>
+                        ))
+                      : ' '}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div className='row'>
@@ -138,31 +135,33 @@ const Profile = () => {
         <div>
           <div className='row'>
             <div id='sessions' className='col s12'>
-              <h5>Sessions</h5><div className='row'>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Target</th>
-                    <th>Common Name</th>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Telescope</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {user.sessions.length
-                    ? user.sessions.map((i, j) => (
-                        <tr key={j}>
-                          <td>{i.targetName}</td>
-                          <td>{i.commonName}</td>
-                          <td>{i.sessionDate}</td>
-                          <td>{i.dsoCategory}</td>
-                          <td>{i.telescope}</td>
-                        </tr>
-                      ))
-                    : ' '} 
-                </tbody>
-              </table></div>
+              <h5>Sessions</h5>
+              <div className='row'>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Target</th>
+                      <th>Common Name</th>
+                      <th>Date</th>
+                      <th>Category</th>
+                      <th>Telescope</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {user.sessions.length
+                      ? user.sessions.map((i, j) => (
+                          <tr key={j}>
+                            <td>{i.targetName}</td>
+                            <td>{i.commonName}</td>
+                            <td>{i.sessionDate}</td>
+                            <td>{i.dsoCategory}</td>
+                            <td>{i.telescope}</td>
+                          </tr>
+                        ))
+                      : ' '}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div className='row'>
@@ -230,8 +229,8 @@ const Profile = () => {
   return (
     <main className='stndrd-page'>
       {/* <div className='container'> */}
-        <h4>{user.username}'s Imaging Journal</h4>
-        <div className='col s12'>
+      <h4>{user.username}'s Imaging Journal</h4>
+      <div className='col s12'>
         <Tabs tabs={tabs} defaultTab='tab1' />
       </div>
       {/* </div> */}

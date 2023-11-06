@@ -44,9 +44,9 @@ const About = () => {
               Dust Lanes handles your multi-session projects and your complex
               mosaics
             </h6><br/>
-            <dl class='about-lists'>
-              <dt class='about-heading'>
-                <strong>Storing:</strong>
+            <dl className='about-lists'>
+              <dt className='about-heading'>
+                Storing:
               </dt>
               <dd>
                 <ul className='about-li'>
@@ -62,9 +62,9 @@ const About = () => {
                 </ul>
               </dd>
             </dl>
-            <dl class='about-lists'>
-              <dt class='about-heading'>
-                <strong>No more:</strong>
+            <dl className='about-lists'>
+              <dt className='about-heading'>
+                No more:
               </dt>
               <dd>
                 <ul>
@@ -79,7 +79,7 @@ const About = () => {
           <div className='col s12 m4 l4'>
             <div className='card blue-grey darken-1'>
               <div className='card-action white-text'>
-                <h4>Today's Weather</h4>
+                <h4>Today&apos;s Weather</h4>
               </div>
               <div className='card-content white-text'>
                 <dl>
