@@ -8,6 +8,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import logo from '../Images/observatory.svg';
 import menu from '../Images/bar.svg';
 import { Sidenav } from 'materialize-css/dist/js/materialize.min.js';
+import { Dropdown } from 'materialize-css/dist/js/materialize.min.js';
 
 const logout = (event) => {
   event.preventDefault();
@@ -16,8 +17,9 @@ const logout = (event) => {
 
 export class Navbar extends Component {
   componentDidMount() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, {});
+    // var elems = document.querySelectorAll('.sidenav');
+    // var instances = M.Sidenav.init(elems, {});
+    M.AutoInit();
   }
 
   render() {
@@ -94,7 +96,7 @@ export class Navbar extends Component {
                 <Link to='me'>Profile</Link>
               </li>
               <li>
-              <Link onClick={logout}>Logout</Link>
+                <Link onClick={logout}>Logout</Link>
               </li>{' '}
             </>
           ) : (

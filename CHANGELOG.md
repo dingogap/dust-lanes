@@ -33,3 +33,4 @@
 32. Adjusted dl styling on about page
 33. Render Locations on Profile page using React component
 34. Render Instruments on Profile Page using React component
+35. Update NavBar component to use DropDown sp Profile Tabs can be split into separate Menu Options
