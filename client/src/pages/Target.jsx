@@ -1,12 +1,9 @@
 // import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
+import TargetList from '../components/TargetList';
 
-import {
-  QUERY_USER,
-  QUERY_ME,
-  QUERY_CATEGORIES,
-} from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_CATEGORIES } from '../utils/queries';
 
 const Target = () => {
   const { username: userParam } = useParams();
@@ -51,26 +48,7 @@ const Target = () => {
         <div className='row'>
           <div className='col S12 m3 l2'> Filters</div>
           <div className='col S12 m9 l10'>
-            <table>
-              <thead>
-                <tr>
-                  <th>Target</th>
-                  <th>Common Name</th>
-                  <th>Category</th>
-                </tr>
-              </thead>
-              <tbody>
-                {user.targets.length
-                  ? user.targets.map((i, j) => (
-                      <tr key={j}>
-                        <td>{i.targetName}</td>
-                        <td>{i.commonName}</td>
-                        <td>{i.dsoCategory}</td>
-                      </tr>
-                    ))
-                  : ' '}
-              </tbody>
-            </table>
+            <TargetList targetData={user.targets} />
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ function SessionSummary({ sessionData }) {
           ))
         ) : (
           <tr>
-            <td colSpan="6">No data available</td>
+            <td colSpan="6">No Sessions have been added</td>
           </tr>
         )}
       </tbody>

@@ -11,6 +11,7 @@ import LocationList from '../components/LocationList';
 import InstrumentList from '../components/InstrumentList';
 import FilterList from '../components/FilterList';
 import SessionSummary from '../components/SessionSummary';
+import TargetList from '../components/TargetList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -95,26 +96,7 @@ const Profile = () => {
             <div id='targets' className='col s12'>
               <h5>Targets</h5>
               <div className='row'>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Target</th>
-                      <th>Common Name</th>
-                      <th>Category</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {user.targets.length
-                      ? user.targets.map((i, j) => (
-                          <tr key={j}>
-                            <td>{i.targetName}</td>
-                            <td>{i.commonName}</td>
-                            <td>{i.dsoCategory}</td>
-                          </tr>
-                        ))
-                      : ' '}
-                  </tbody>
-                </table>
+                <TargetList targetData={user.targets} />
               </div>
             </div>
           </div>

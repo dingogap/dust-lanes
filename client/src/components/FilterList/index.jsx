@@ -1,11 +1,15 @@
+import React from 'react';
+
 function FilterList({ filterData }) {
-  return filterData.length
-    ? filterData.map((i, j) => (
-        <li key={j}>
-          {i.filterName} ({i.filterType})
-        </li>
-      ))
-    : '';
+  return filterData.length ? (
+    filterData.map((item, index) => (
+      <li key={j}>
+        {item.filterName} ({item.filterType})
+      </li>
+    ))
+  ) : (
+    <p>No Filters have been added</p>
+  );
 }
 
 export default FilterList;

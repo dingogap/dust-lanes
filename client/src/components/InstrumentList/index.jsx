@@ -1,16 +1,16 @@
 function InstrumentList({ instrumentData }) {
     return instrumentData.length
-      ? instrumentData.map((i, j) => (
-          <dl key={j} className='about-lists'>
+      ? instrumentData.map((instrument, index) => (
+          <dl key={index} className='about-lists'>
             <dt>Telescope:</dt>
-            <dd>{i.telescope}</dd>
+            <dd>{instrument.telescope}</dd>
             <dt>Camera:</dt>
-            <dd>{i.camera}</dd>
+            <dd>{instrument.camera}</dd>
             <dt>Mount:</dt>
-            <dd>{i.mount}</dd>
+            <dd>{instrument.mount}</dd>
           </dl>
         ))
-      : '';
+      : (<p>No Instruments have been added</p>);
   }
   
   export default InstrumentList;
