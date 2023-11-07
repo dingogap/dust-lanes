@@ -1,20 +1,24 @@
+import React from 'react';
+
 function LocationList({ locationData }) {
-  return locationData.length
-    ? locationData.map((i, j) => (
-        <dl key={j} className='about-lists'>
-          <dt>Place:</dt>
-          <dd>{i.place}</dd>
-          <dt>Lat:</dt>
-          <dd>{i.lat}</dd>
-          <dt>Lon:</dt>
-          <dd>{i.lon}</dd>
-          <dt>Altitude:</dt>
-          <dd>{i.altitude}</dd>
-          <dt>Bortle:</dt>
-          <dd>{i.bortle}</dd>
-        </dl>
-      ))
-    : '';
+  return locationData.length > 0 ? (
+    locationData.map((item, index) => (
+      <dl key={index} className='about-lists'>
+        <dt>Place:</dt>
+        <dd>{item.place}</dd>
+        <dt>Lat:</dt>
+        <dd>{item.lat}</dd>
+        <dt>Lon:</dt>
+        <dd>{item.lon}</dd>
+        <dt>Altitude:</dt>
+        <dd>{item.altitude}</dd>
+        <dt>Bortle:</dt>
+        <dd>{item.bortle}</dd>
+      </dl>
+    ))
+  ) : (
+    <p>No Locations have been added</p>
+  );
 }
 
 export default LocationList;
