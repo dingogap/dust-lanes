@@ -1,6 +1,7 @@
 // import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
+import SessionSummary from '../components/SessionSummary'
 
 import {
   QUERY_USER,
@@ -55,7 +56,7 @@ const Session = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Target</th>
+                  <th>Target Name</th>
                   <th>Common Name</th>
                   <th>Date</th>
                   <th>Category</th>
@@ -64,18 +65,7 @@ const Session = () => {
                 </tr>
               </thead>
               <tbody>
-                {user.sessions.length
-                  ? user.sessions.map((i, j) => (
-                      <tr key={j}>
-                        <td>{i.targetName}</td>
-                        <td>{i.commonName}</td>
-                        <td>{i.sessionDate}</td>
-                        <td>{i.dsoCategory}</td>
-                        <td>{i.telescope}</td>
-                        <td>{i.camera}</td>
-                      </tr>
-                    ))
-                  : ' '}
+              <SessionSummary sessionData={user.sessions} />
               </tbody>
             </table>
           </div>

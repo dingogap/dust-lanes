@@ -35,3 +35,4 @@
 34. Render Instruments on Profile Page using React component
 35. Update NavBar component to use DropDown sp Profile Tabs can be split into separate Menu Options
 36. Render Filters on Profile Page using React component
+37. Render SessionSummary on Session Page & Profile Page using Component

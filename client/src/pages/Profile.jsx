@@ -10,6 +10,7 @@ import Tabs from '../components/Tabs';
 import LocationList from '../components/LocationList';
 import InstrumentList from '../components/InstrumentList';
 import FilterList from '../components/FilterList';
+import SessionSummary from '../components/SessionSummary';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -138,25 +139,16 @@ const Profile = () => {
                 <table>
                   <thead>
                     <tr>
-                      <th>Target</th>
+                      <th>Target Name</th>
                       <th>Common Name</th>
                       <th>Date</th>
                       <th>Category</th>
                       <th>Telescope</th>
+                      <th>Camera</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {user.sessions.length
-                      ? user.sessions.map((i, j) => (
-                          <tr key={j}>
-                            <td>{i.targetName}</td>
-                            <td>{i.commonName}</td>
-                            <td>{i.sessionDate}</td>
-                            <td>{i.dsoCategory}</td>
-                            <td>{i.telescope}</td>
-                          </tr>
-                        ))
-                      : ' '}
+                    <SessionSummary sessionData={user.sessions} />
                   </tbody>
                 </table>
               </div>
