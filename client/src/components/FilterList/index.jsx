@@ -3,7 +3,7 @@ import React from 'react';
 function FilterList({ filterData }) {
   return filterData.length ? (
     filterData.map((item, index) => (
-      <li key={j}>
+      <li key={index}>
         {item.filterName} ({item.filterType})
       </li>
     ))
