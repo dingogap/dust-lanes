@@ -21,7 +21,7 @@ function TargetList({ targetData }) {
           ))
         ) : (
           <tr>
-            <td colSpan='6'>No Sessions have been added</td>
+            <td colSpan='6'>No Targets have been added</td>
           </tr>
         )}
       </tbody>
