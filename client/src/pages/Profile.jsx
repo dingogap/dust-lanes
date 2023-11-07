@@ -9,6 +9,7 @@ import TargetForm from '../components/TargetForm';
 import Tabs from '../components/Tabs';
 import LocationList from '../components/LocationList';
 import InstrumentList from '../components/InstrumentList';
+import FilterList from '../components/FilterList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
@@ -72,7 +73,7 @@ const Profile = () => {
             </div>
             <div className='col s12 m6 l6'>
               <h5>Locations</h5>
-                <LocationList locationData = {user.locations} />
+              <LocationList locationData={user.locations} />
             </div>
             <div className='row'>
               <div className='col s6 m4 l4'>
@@ -178,21 +179,13 @@ const Profile = () => {
           <div className='row'>
             <div className='col s12 m6 l6'>
               <h5>Instruments</h5>
-              <InstrumentList instrumentData = {user.instruments} />
+              <InstrumentList instrumentData={user.instruments} />
             </div>
             <div className='col s6 m6 l6'>
               <h5>Filters</h5>
-              {user.filters.length ? (
-                <ul>
-                  {user.filters.map((i, j) => (
-                    <li key={j}>
-                      {i.filterName} ({i.filterType})
-                    </li>
-                  ))}{' '}
-                </ul>
-              ) : (
-                ''
-              )}
+              <ul>
+                <FilterList filterData={user.filters} />
+              </ul>
             </div>
           </div>
           <div className='row'>
