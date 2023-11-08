@@ -39,3 +39,4 @@
 38. Improve Table Handling in SessionSummary Component
 39. Render TargetList using React Component
 40. Filter SessionSummary by Category
+41. Bug With Materialize Select requires browser-default class to be set to work correctly on IOS devices

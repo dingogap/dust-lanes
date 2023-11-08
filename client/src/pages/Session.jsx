@@ -58,8 +58,9 @@ const Session = () => {
       <div className='row'>
         <div className='row'>
           <div className='col S12 m3 l2 input-field'>
-          {/* <label htmlFor="categoryFilter">Category:</label> */}
-          <select
+          <div><label htmlFor="categoryFilter">Category:</label></div>
+          <div>
+          <select className='browser-default'
             id="categoryFilter"
             onChange={(e) => setSelectedCategory(e.target.value)}
             value={selectedCategory}
@@ -70,7 +71,7 @@ const Session = () => {
                 {category}
               </option>
             ))}
-          </select><label htmlFor="categoryFilter">Category:</label></div>
+          </select></div></div>
           <div className='col S12 m9 l10'>
             <SessionSummary sessionData={user.sessions} selectedCategory={selectedCategory} />
           </div>
