@@ -38,3 +38,4 @@
 37. Render SessionSummary on Session Page & Profile Page using Component
 38. Improve Table Handling in SessionSummary Component
 39. Render TargetList using React Component
+40. Filter SessionSummary by Category

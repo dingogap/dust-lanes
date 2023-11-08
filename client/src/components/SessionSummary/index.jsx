@@ -1,6 +1,11 @@
 import React from 'react';
 
-function SessionSummary({ sessionData }) {
+function SessionSummary({ sessionData, selectedCategory }) {
+  // Filter sessionData based on selectedCategory
+  const filteredSessionData = selectedCategory
+    ? sessionData.filter(item => item.dsoCategory === selectedCategory)
+    : sessionData;
+
   return (
     <table>
       <thead>
@@ -14,8 +19,8 @@ function SessionSummary({ sessionData }) {
         </tr>
       </thead>
       <tbody>
-        {sessionData.length > 0 ? (
-          sessionData.map((item, index) => (
+        {filteredSessionData.length > 0 ? (
+          filteredSessionData.map((item, index) => (
             <tr key={index}>
               <td>{item.targetName}</td>
               <td>{item.commonName}</td>

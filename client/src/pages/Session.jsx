@@ -1,7 +1,9 @@
-// import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import SessionSummary from '../components/SessionSummary';
+
+// import M from 'materialize-css'
 
 import {
   QUERY_USER,
@@ -12,26 +14,30 @@ import {
 
 const Session = () => {
   const { username: userParam } = useParams();
-  var { loading, error, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  const [selectedCategory, setSelectedCategory] = useState(''); // Initialize selectedCategory state
+
+  const { loading, error, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
 
-  var { loading: categoriesloading, data: categoriesData } =
-    useQuery(QUERY_CATEGORIES);
+  const { loading: categoriesloading, data: categoriesData } = useQuery(QUERY_CATEGORIES);
   const cats = categoriesData?.categories || [];
 
   const parsedValues = cats.map((object) => {
     return object.categoryName;
   });
-  console.log(parsedValues);
+
+  useEffect(() => {
+    M.AutoInit();
+  }, []);
 
   if (loading) {
     return (
       <main className='stndrd-page'>
         <div className='row'>
           <div>
-            {/* <h5>Loading...</h5> */}
+            <h5>Loading...</h5>
             <div className='progress'>
               <div className='indeterminate'></div>
             </div>
@@ -45,19 +51,31 @@ const Session = () => {
     // Handle errors here
     return <div>Error: {error.message}</div>;
   }
+
   return (
     <main className='stndrd-page'>
-      {/* <div className='container'> */}
       <h4>{user.username}'s Session Logs</h4>
       <div className='row'>
         <div className='row'>
-          <div className='col S12 m3 l2'> Filters</div>
+          <div className='col S12 m3 l2 input-field'>
+          {/* <label htmlFor="categoryFilter">Category:</label> */}
+          <select
+            id="categoryFilter"
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            value={selectedCategory}
+          >
+            <option value="">All</option>
+            {parsedValues.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select><label htmlFor="categoryFilter">Category:</label></div>
           <div className='col S12 m9 l10'>
-            <SessionSummary sessionData={user.sessions} />
+            <SessionSummary sessionData={user.sessions} selectedCategory={selectedCategory} />
           </div>
         </div>
       </div>
-      {/* </div> */}
     </main>
   );
 };
